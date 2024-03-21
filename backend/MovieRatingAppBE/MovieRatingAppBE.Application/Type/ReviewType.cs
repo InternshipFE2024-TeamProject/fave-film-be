@@ -7,12 +7,12 @@ public class ReviewType : ObjectGraphType<Review>
 {
     public ReviewType()
     {
-        Field(m => m.Id);
-        Field(m => m.Rating);
-        Field(m =>m.Comment);
-        Field( m =>m.Date);
-        Field(m => m.UserId);
-        Field(m =>m.MovieId);
+        Field(r => r.Id);
+        Field(r => r.Rating);
+        Field(r =>r.Comment);
+        Field( r =>r.Date);
+        Field(r => r.UserId);
+        Field(r =>r.MovieId);
        
     }   
 }

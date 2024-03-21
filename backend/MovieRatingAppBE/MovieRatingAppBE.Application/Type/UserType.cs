@@ -6,20 +6,17 @@ namespace MovieRatingAppBE.Application.Type;
 
 public class UserType:ObjectGraphType<User>
 {
-    public UserType(IMovieRepository movieRepository, IReviewRepository reviewRepository)
+    public UserType(IReviewRepository reviewRepository)
     {
-        Field(m => m.Id);
-        Field(m => m.FirstName);
-        Field(m =>m.LastName);
-        Field( m =>m.Email);
-        Field(m => m.Password);
-        Field<ListGraphType<MovieType>>("WatchedList").Resolve(context =>
-        {
-            return movieRepository.Get();
-        });
+        Field(u => u.Id);
+        Field(u => u.FirstName);
+        Field(u =>u.LastName);
+        Field( u =>u.Email);
+        Field(u => u.Password);
+        Field(u=>u.WatchedList);
         Field<ListGraphType<ReviewType>>("ReviewsList").Resolve(context =>
         {
-            return reviewRepository.Get();
+            return reviewRepository.GetByUserId(context.Source.Id);
         });
     }
 }

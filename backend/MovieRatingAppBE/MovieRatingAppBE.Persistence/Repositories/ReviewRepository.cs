@@ -23,9 +23,33 @@ public class ReviewRepository : IReviewRepository
         return _context.Reviews.Find(id);
     }
 
-    public void Create(Review review)
+    public List<Review> GetByMovieId(int movieId)
+    {
+        //Continue with the query implementation
+        return _context.Reviews.Where(rev=>rev.MovieId == movieId).ToList();
+    }
+
+    public List<Review> GetByUserId(int userId)
+    {
+        //Continue with the query implementation
+        return _context.Reviews.Where(rev=>rev.UserId == userId).ToList();
+    }
+
+    public List<Review> GetByMovieAndUserIds(int movieId, int userId)
+    {
+        //Continue with the query implementation
+        return _context.Reviews.Where(rev=>rev.MovieId == movieId&&rev.UserId==userId).ToList();
+    }
+
+    public void AddReview(Review review)
     {
         _context.Reviews.Add(review);
+        var movie = _context.Movies.Find(review.MovieId);
+        movie.Reviews.Add(review);
+        _context.Movies.Update(movie);
+        var user = _context.Users.Find(review.UserId);
+        user.ReviewsList.Add(review);
+        _context.Users.Update(user);
         _context.SaveChanges();
     }
 

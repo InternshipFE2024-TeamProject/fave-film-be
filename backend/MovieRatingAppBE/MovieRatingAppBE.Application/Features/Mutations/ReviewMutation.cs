@@ -13,7 +13,7 @@ public class ReviewMutation:ObjectGraphType
     {
         Field<StringGraphType>("CreateReview").Arguments(new QueryArgument<ReviewInputType>{Name = "review"}).Resolve(context =>
         {
-            reviewRepository.Create(context.GetArgument<Review>("review"));
+            reviewRepository.AddReview(context.GetArgument<Review>("review"));
             return "The review was created";
         });
         Field<ReviewType>("UpdateReview").Arguments(new QueryArgument<ReviewInputType>{Name = "review"}).Resolve(context =>
@@ -27,5 +27,6 @@ public class ReviewMutation:ObjectGraphType
             reviewRepository.Delete(id);
             return "The review against this Id" + id + " has been deleted";
         });
+        //Continue with the query implementation
     }
 }

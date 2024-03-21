@@ -13,9 +13,10 @@ public class UserQuery : ObjectGraphType
         {
             return userRepository.Get();
         });
-        Field<MovieType>("User").Arguments(new QueryArgument<IntGraphType>{Name = "id"}).Resolve(context =>
+        Field<UserType>("User").Arguments(new QueryArgument<IntGraphType>{Name = "id"}).Resolve(context =>
         {
             return userRepository.GetById(context.GetArgument<int>("id"));
         });
+        
     }
 }

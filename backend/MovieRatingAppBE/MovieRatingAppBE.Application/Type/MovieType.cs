@@ -18,7 +18,7 @@ public class MovieType : ObjectGraphType<Movie>
         Field<ListGraphType<StringGraphType>>("cast").Resolve(m =>m.Source.Cast);
         Field<ListGraphType<ReviewType>>("Reviews").Resolve(context =>
             {
-                return reviewRepository.Get();
+                return reviewRepository.GetByMovieId(context.Source.Id);
             });
     }
 }
