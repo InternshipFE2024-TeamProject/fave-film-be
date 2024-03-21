@@ -66,7 +66,7 @@ namespace MovieRatingAppBE.Persistence.Migrations
                             Description = "In a future where people stop aging at 25, but are engineered to live only one more year, having the means to buy your way out of the situation is a shot at immortal youth. Here, Will Salas finds himself accused of murder and on the run with a hostage - a connection that becomes an important part of the way against the system.",
                             Director = "Andrew Niccol",
                             Genres = "[\"Science Fiction\",\"Thriller\",\"Action\"]",
-                            ImagesUrls = "[\"https://www.imdb.com/title/tt1637688/mediaviewer/rm1617280768/?ref_=tt_ov_i\",\"https://www.imdb.com/title/tt1637688/mediaviewer/rm3689329152/?ref_=tt_md_3\",\"https://www.imdb.com/title/tt1637688/mediaviewer/rm3672551936/?ref_=tt_md_4\"]",
+                            ImagesUrls = "[\"https://m.media-amazon.com/images/M/MV5BMjA3NzI1ODc1MV5BMl5BanBnXkFtZTcwMzI5NjQwNg@@._V1_.jpg\",\"https://m.media-amazon.com/images/M/MV5BMTU4NTY2NDU3Ml5BMl5BanBnXkFtZTcwMjQ1MTE5Ng@@._V1_.jpg\",\"https://static.cinemagia.ro/img/db/movie/55/89/90/in-time-690990l.jpg\"]",
                             Title = "In Time"
                         },
                         new
@@ -76,7 +76,7 @@ namespace MovieRatingAppBE.Persistence.Migrations
                             Description = "During WWII, acclaimed Polish musician Wladyslaw faces various struggles as he loses contact with his family. As the situation worsens, he hides in the ruins of Warsaw in order to survive.",
                             Director = "Roman Polanski",
                             Genres = "[\"Biography\",\"Drama\",\"Music\"]",
-                            ImagesUrls = "[\"https://www.imdb.com/title/tt0253474/mediaviewer/rm902038272/?ref_=tt_ov_i\",\"https://www.imdb.com/title/tt0253474/mediaviewer/rm1931906816/?ref_=tt_md_3\",\"https://www.imdb.com/title/tt0253474/mediaviewer/rm1680248576/?ref_=tt_md_8\"]",
+                            ImagesUrls = "[\"https://m.media-amazon.com/images/M/MV5BOWRiZDIxZjktMTA1NC00MDQ2LWEzMjUtMTliZmY3NjQ3ODJiXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_FMjpg_UX1000_.jpg\",\"https://m.media-amazon.com/images/M/MV5BMTMxMTUzOTYxNF5BMl5BanBnXkFtZTcwNDYxMTIyMw@@._V1_.jpg\",\"https://filmforum.org/do-not-enter-or-modify-or-erase/client-uploads/_1000w/THE_PIANIST_slideshow_3.png\"]",
                             Title = "The Pianist"
                         },
                         new
@@ -86,7 +86,7 @@ namespace MovieRatingAppBE.Persistence.Migrations
                             Description = "The flight of a rugby team crashes on a glacier in the Andes. The few passengers who survive the crash find themselves in one of the world's toughest environments to survive.",
                             Director = "J.A. Bayona",
                             Genres = "[\"Adventure\",\"Biography\",\"Drama\"]",
-                            ImagesUrls = "[\"https://www.imdb.com/title/tt16277242/mediaviewer/rm2344241665/?ref_=tt_ov_i\",\"https://www.imdb.com/title/tt16277242/mediaviewer/rm1905282561/?ref_=tt_md_1\",\"https://www.imdb.com/title/tt16277242/mediaviewer/rm1888505345/?ref_=tt_md_2\"]",
+                            ImagesUrls = "[\"https://elranchito.es/wp-content/uploads/2023/12/MV5BYWQ0Y2MxODgtOWI0ZC00MWIwLWIyYzEtN2FhNWQ1MGQ3MDBhXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_.jpg\",\"https://variety.com/wp-content/uploads/2023/07/Society-of-the-Snow.jpg?w=1000\",\"https://m.media-amazon.com/images/M/MV5BZWQwYTljYWEtOThjZS00NmI5LWFmZTAtNDcyZjAwY2MxNjRjXkEyXkFqcGdeQXVyMDc2NTEzMw@@._V1_.jpg\"]",
                             Title = "Society of the Snow"
                         });
                 });
