@@ -13,32 +13,32 @@ public class ReviewRepository : IReviewRepository
     {
         _context = context;
     }
-    public async Task<IReadOnlyList<Review>> GetAsync()
+    public IReadOnlyList<Review> Get()
     {
-        return await _context.Reviews.ToListAsync();
+        return _context.Reviews.ToList();
     }
 
-    public async Task<Review> GetByIdAsync(int id)
+    public Review GetById(int id)
     {
-        return await _context.Reviews.FindAsync(id);
+        return _context.Reviews.Find(id);
     }
 
-    public async Task CreateAsync(Review review)
+    public void Create(Review review)
     {
-        await _context.Reviews.AddAsync(review);
-        await _context.SaveChangesAsync();
+        _context.Reviews.Add(review);
+        _context.SaveChanges();
     }
 
-    public async Task UpdateAsync(Review review)
+    public void Update(Review review)
     {
         _context.Reviews.Update(review);
-        await _context.SaveChangesAsync();
+        _context.SaveChanges();
     }
 
-    public async Task DeleteAsync(int id)
+    public void Delete(int id)
     {
-        var reviewResult = await _context.Reviews.FindAsync(id);
+        var reviewResult = _context.Reviews.Find(id);
         _context.Reviews.Remove(reviewResult);
-        await _context.SaveChangesAsync();
+        _context.SaveChanges();
     }
 }

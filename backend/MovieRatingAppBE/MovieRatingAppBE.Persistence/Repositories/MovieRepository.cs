@@ -13,13 +13,13 @@ public class MovieRepository : IMovieRepository
     {
         _context = context;
     }
-    public async Task<IReadOnlyList<Movie>> GetAsync()
+    public IReadOnlyList<Movie> Get()
     {
-        return await _context.Movies.ToListAsync();
+        return _context.Movies.ToList();
     }
 
-    public async Task<Movie> GetByIdAsync(int id)
+    public Movie GetById(int id)
     {
-        return await _context.Movies.FindAsync(id);
+        return _context.Movies.Find(id);
     }
 }

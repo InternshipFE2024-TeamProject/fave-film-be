@@ -13,19 +13,19 @@ public class UserRepository : IUserRepository
     {
         _context = context;
     }
-    public async Task<IReadOnlyList<User>> GetAsync()
+    public IReadOnlyList<User> Get()
     {
-        return await _context.Users.ToListAsync();
+        return _context.Users.ToList();
     }
 
-    public async Task<User> GetByIdAsync(int id)
+    public User GetById(int id)
     {
-        return await _context.Users.FindAsync(id);
+        return _context.Users.Find(id);
     }
 
-    public async Task CreateAsync(User user)
+    public void Create(User user)
     {
-        await _context.Users.AddAsync(user);
-        await _context.SaveChangesAsync();
+        _context.Users.Add(user);
+        _context.SaveChanges();
     }
 }

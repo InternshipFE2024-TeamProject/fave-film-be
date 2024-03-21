@@ -24,4 +24,8 @@
       <ProjectReference Include="..\MovieRatingAppBE.Persistence\MovieRatingAppBE.Persistence.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Controllers\" />
+    </ItemGroup>
+
 </Project>

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MovieRatingAppBE.Persistence.Data;
 
@@ -11,9 +12,11 @@ using MovieRatingAppBE.Persistence.Data;
 namespace MovieRatingAppBE.Persistence.Migrations
 {
     [DbContext(typeof(MovieRatingContext))]
-    partial class MovieRatingContextModelSnapshot : ModelSnapshot
+    [Migration("20240321094319_Alter Database Schema")]
+    partial class AlterDatabaseSchema
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -46,7 +49,7 @@ namespace MovieRatingAppBE.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ImagesUrls")
+                    b.Property<string>("ImagesUlrs")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -57,38 +60,6 @@ namespace MovieRatingAppBE.Persistence.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Movies");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Cast = "[\"Justin Timberlake\",\"Cillian Murphy\",\"Amanda Seyfried\"]",
-                            Description = "In a future where people stop aging at 25, but are engineered to live only one more year, having the means to buy your way out of the situation is a shot at immortal youth. Here, Will Salas finds himself accused of murder and on the run with a hostage - a connection that becomes an important part of the way against the system.",
-                            Director = "Andrew Niccol",
-                            Genres = "[\"Science Fiction\",\"Thriller\",\"Action\"]",
-                            ImagesUrls = "[\"https://www.imdb.com/title/tt1637688/mediaviewer/rm1617280768/?ref_=tt_ov_i\",\"https://www.imdb.com/title/tt1637688/mediaviewer/rm3689329152/?ref_=tt_md_3\",\"https://www.imdb.com/title/tt1637688/mediaviewer/rm3672551936/?ref_=tt_md_4\"]",
-                            Title = "In Time"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Cast = "[\"Adrien Brody\",\"Thomas Kretschmann\",\"Frank Finlay\"]",
-                            Description = "During WWII, acclaimed Polish musician Wladyslaw faces various struggles as he loses contact with his family. As the situation worsens, he hides in the ruins of Warsaw in order to survive.",
-                            Director = "Roman Polanski",
-                            Genres = "[\"Biography\",\"Drama\",\"Music\"]",
-                            ImagesUrls = "[\"https://www.imdb.com/title/tt0253474/mediaviewer/rm902038272/?ref_=tt_ov_i\",\"https://www.imdb.com/title/tt0253474/mediaviewer/rm1931906816/?ref_=tt_md_3\",\"https://www.imdb.com/title/tt0253474/mediaviewer/rm1680248576/?ref_=tt_md_8\"]",
-                            Title = "The Pianist"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Cast = "[\"Enzo Vogrincic\",\"Agust\\u00EDn Pardella\",\"Mat\\u00EDas Recalt\"]",
-                            Description = "The flight of a rugby team crashes on a glacier in the Andes. The few passengers who survive the crash find themselves in one of the world's toughest environments to survive.",
-                            Director = "J.A. Bayona",
-                            Genres = "[\"Adventure\",\"Biography\",\"Drama\"]",
-                            ImagesUrls = "[\"https://www.imdb.com/title/tt16277242/mediaviewer/rm2344241665/?ref_=tt_ov_i\",\"https://www.imdb.com/title/tt16277242/mediaviewer/rm1905282561/?ref_=tt_md_1\",\"https://www.imdb.com/title/tt16277242/mediaviewer/rm1888505345/?ref_=tt_md_2\"]",
-                            Title = "Society of the Snow"
-                        });
                 });
 
             modelBuilder.Entity("MovieRatingAppBE.Domain.Review", b =>
