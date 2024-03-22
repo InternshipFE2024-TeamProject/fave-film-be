@@ -17,7 +17,7 @@ public class UserRepository : IUserRepository
     public IReadOnlyList<User> Get()
     {
         
-        return _context.Users.ToList();
+        return _context.Users.Include(u=>u.WatchedList).ToList();
     }
 
     public User GetById(int id)
