@@ -45,8 +45,48 @@ public class MovieRatingContext : DbContext
                 Genres = ["Adventure","Biography","Drama"],
                 Director = "J.A. Bayona",
                 Cast=["Enzo Vogrincic","Agustín Pardella","Matías Recalt"]
+            },
+            new Movie
+            {
+                Id = 4, 
+                Title = "Spirited Away",
+                Description = "During her family's move to the suburbs, a sullen 10-year-old girl wanders into a world ruled by gods, witches and spirits, a world where humans are changed into beasts.",
+                ImagesUrls = ["https://m.media-amazon.com/images/M/MV5BMjlmZmI5MDctNDE2YS00YWE0LWE5ZWItZDBhYWQ0NTcxNWRhXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg","https://m.media-amazon.com/images/M/MV5BMjE1Mjk2MTcwNV5BMl5BanBnXkFtZTgwNTc1MTMyMDE@._V1_.jpg","https://www.fortressofsolitude.co.za/wp-content/uploads/2021/04/spirited-away-no-face.jpg"],
+                Genres = ["Animation","Adventure","Family"],
+                Director = "Hayao Miyazaki",
+                Cast=["Miyu Irino","Rumi Hiiragi","Mari Natsuki"]
+            },
+            new Movie
+            {
+                Id = 5, 
+                Title = "Barbie",
+                Description = "Barbie and Ken are having the time of their lives in the colorful and seemingly perfect world of Barbie Land. However, when they get a chance to go to the real world, they soon discover the joys and perils of living among humans.",
+                ImagesUrls = ["https://i.ebayimg.com/images/g/O3MAAOSwiZ9k0HfD/s-l1600.jpg","https://www.barbie-themovie.com/images/share.jpg","https://hips.hearstapps.com/hmg-prod/images/barbie-movie-film-64b9625d145c1.jpeg"],
+                Genres = ["Adventure","Comedy","Fantasy"],
+                Director = "Greta Gerwig",
+                Cast=["Margot Robbie","Ryan Gosling","Simu Liu"]
+            },
+            new Movie
+            {
+                Id = 6, 
+                Title = "Interstellar",
+                Description = "When Earth becomes uninhabitable in the future, a farmer and ex-NASA pilot, Joseph Cooper, is tasked to pilot a spacecraft, along with a team of researchers, to find a new planet for humans.",
+                ImagesUrls = ["https://m.media-amazon.com/images/M/MV5BZjdkOTU3MDktN2IxOS00OGEyLWFmMjktY2FiMmZkNWIyODZiXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg","https://www.denofgeek.com/wp-content/uploads/2022/02/spaceship-and-black-hole-in-Interstellar.jpeg?fit=1800%2C1125","https://cdn.mos.cms.futurecdn.net/LVoJnXBbUH6xx9EkfgVnc5.jpg"],
+                Genres = ["Adventure","Drama","Science Fiction"],
+                Director = "Christopher Nolan",
+                Cast=["Matthew McConaughey","Anne Hathaway","Jessica Chastain"]
             }
+            
         );
-
+        modelBuilder.Entity<User>().HasData(new User
+        {
+            Id = 1,
+            FirstName = "Robert",
+            LastName = "Domokos",
+            Email = "my@email.com",
+            Password = "pass",
+            ReviewsList = [],
+            WatchedList = []
+        });
     }
 }
