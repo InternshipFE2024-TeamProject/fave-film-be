@@ -17,5 +17,9 @@ public class MovieQuery : ObjectGraphType
         {
             return movieRepository.GetById(context.GetArgument<int>("id"));
         });
+        Field<ListGraphType<MovieType>>("MoviesByGenre").Arguments(new QueryArgument<StringGraphType>{Name="genre"}).Resolve(context =>
+        {
+            return movieRepository.GetByGenre(context.GetArgument<string>("genre"));
+        });
     }
 }

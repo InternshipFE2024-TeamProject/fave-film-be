@@ -26,11 +26,11 @@ public class UserMutation:ObjectGraphType
                     context.GetArgument<string>("password"));
                 return user;
             });
-        Field<StringGraphType>("AddToWatchList").Arguments(new QueryArgument<UserInputType> { Name = "user" },
+        Field<StringGraphType>("AddToWatchList").Arguments(new QueryArgument<IntGraphType> { Name = "userId" },
             new QueryArgument<IntGraphType> { Name = "movieId" })
             .Resolve(context =>
             {
-                userRepository.AddToWatchList(context.GetArgument<User>("user"),context.GetArgument<int>("movieId"));
+                userRepository.AddToWatchList(context.GetArgument<int>("userId"),context.GetArgument<int>("movieId"));
                 return "Added to movie with Id = " + context.GetArgument<int>("movieId") + " to watchlist";
             });
     }
