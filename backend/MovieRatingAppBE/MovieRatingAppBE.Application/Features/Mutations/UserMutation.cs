@@ -33,5 +33,12 @@ public class UserMutation:ObjectGraphType
                 userRepository.AddToWatchList(context.GetArgument<int>("userId"),context.GetArgument<int>("movieId"));
                 return "Added to movie with Id = " + context.GetArgument<int>("movieId") + " to watchlist";
             });
+        Field<StringGraphType>("DeleteFromWatchList").Arguments(new QueryArgument<IntGraphType> { Name = "userId" },
+                new QueryArgument<IntGraphType> { Name = "movieId" })
+            .Resolve(context =>
+            {
+                userRepository.DeleteMovieFromWatchList(context.GetArgument<int>("userId"),context.GetArgument<int>("movieId"));
+                return "Movie with Id = " + context.GetArgument<int>("movieId") + " deleted from watchlist.";
+            });
     }
 }

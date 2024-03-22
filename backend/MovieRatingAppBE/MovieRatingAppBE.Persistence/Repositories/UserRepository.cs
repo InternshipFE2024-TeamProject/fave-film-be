@@ -32,15 +32,35 @@ public class UserRepository : IUserRepository
         //Continue with the query implementation
         var movie = _context.Movies.FirstOrDefault(m=>m.Id==movieId);
         var user = _context.Users.FirstOrDefault(u=>u.Id==userId);
-        user.WatchedList.Add(movie);
-        movie.Users.Add(user);
-        _context.Users.Update(user);
-        _context.Movies.Update(movie);
-        _context.Users.Attach(user);
-        _context.Movies.Attach(movie);
-        _context.SaveChanges();
+        if (user != null && movie != null)
+        {
+            user.WatchedList.Add(movie);
+            movie.Users.Add(user);
+            _context.Users.Update(user);
+            _context.Movies.Update(movie);
+            _context.Users.Attach(user);
+            _context.Movies.Attach(movie);
+            _context.SaveChanges();
+        }
+
     }
-    
+
+    public void DeleteMovieFromWatchList(int userId, int movieId)
+    {
+        var movie = _context.Movies.Include(m=>m.Users).FirstOrDefault(m=>m.Id==movieId);
+        var user = _context.Users.Include(u=>u.WatchedList).FirstOrDefault(u=>u.Id==userId);
+        if (user != null && movie != null)
+        {
+            user.WatchedList.Remove(movie);
+            movie.Users.Remove(user);
+            
+            _context.Users.Update(user);
+            _context.Movies.Update(movie);
+            
+            _context.SaveChanges();
+        }
+
+    }
     public void Register(User user)
     {
         //Continue with the query implementation
