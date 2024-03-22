@@ -22,4 +22,9 @@ public class MovieRepository : IMovieRepository
     {
         return _context.Movies.Find(id);
     }
+
+    public IReadOnlyList<Movie> GetByGenre(string genre)
+    {
+        return _context.Movies.ToList().FindAll(u => u.Genres.Contains(genre));
+    }
 }

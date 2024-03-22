@@ -43,6 +43,7 @@ public class ReviewRepository : IReviewRepository
 
     public void AddReview(Review review)
     {
+        review.Date = DateTime.Now;
         _context.Reviews.Add(review);
         var movie = _context.Movies.Find(review.MovieId);
         movie.Reviews.Add(review);
@@ -55,6 +56,7 @@ public class ReviewRepository : IReviewRepository
 
     public void Update(Review review)
     {
+        review.Date = DateTime.Now;
         _context.Reviews.Update(review);
         _context.SaveChanges();
     }

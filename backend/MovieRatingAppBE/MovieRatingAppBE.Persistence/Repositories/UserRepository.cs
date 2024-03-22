@@ -16,19 +16,28 @@ public class UserRepository : IUserRepository
     }
     public IReadOnlyList<User> Get()
     {
+        
         return _context.Users.ToList();
     }
 
     public User GetById(int id)
     {
-        return _context.Users.Find(id);
+        var user = _context.Users.Include(u => u.WatchedList).FirstOrDefault(u => u.Id == id);
+        Console.WriteLine(user.WatchedList.Count);
+        return user;
     }
 
-    public void AddToWatchList(User user,int movieId)
+    public void AddToWatchList(int userId,int movieId)
     {
         //Continue with the query implementation
-        var movie = _context.Movies.Find(movieId);
+        var movie = _context.Movies.FirstOrDefault(m=>m.Id==movieId);
+        var user = _context.Users.FirstOrDefault(u=>u.Id==userId);
         user.WatchedList.Add(movie);
+        movie.Users.Add(user);
+        _context.Users.Update(user);
+        _context.Movies.Update(movie);
+        _context.Users.Attach(user);
+        _context.Movies.Attach(movie);
         _context.SaveChanges();
     }
     
